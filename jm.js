@@ -16,7 +16,8 @@ class JM extends ComicSource {
     static jmPkgName = "com.example.app"
 
     // update url
-    url = "https://cdn.jsdelivr.net/gh/venera-app/venera-configs@main/jm.js"
+    //url = "https://cdn.jsdelivr.net/gh/venera-app/venera-configs@main/jm.js"
+    url = "https://raw.githubusercontent.com/AriaArcadia/venera-configs/refs/heads/main/jm.js"
 
     static fallbackServers = [
         "www.cdntwice.org",
@@ -368,6 +369,22 @@ class JM extends ComicSource {
 
                 return result
             },
+            {
+                title: "禁漫最新",
+                type: "multiPageComicList",
+                load: async (page) => {
+                    let res = await this.get(`${this.baseUrl}/latest?$baseData&page=${page}`)
+                    let Comic = []
+                    for(let e of JSON.parse(res)) {
+                        let comic = this.parseComic(e)
+                        Comic.push(comic)
+                    }
+                    let result={
+                        comics: Comic,
+                        maxPage: 99999
+                }
+                return result
+            }
         }
     ]
 
