@@ -783,8 +783,9 @@ class JM extends ComicSource {
          * @returns {Promise<ComicDetails>}
          */
         loadInfo: async (id) => {
+            let jmid = id;
             if (id.startsWith('jm')) {
-                let jmid = id;
+                
                 id = id.substring(2)
             }
             let res = await this.get(`${this.baseUrl}/album?id=${id}`);
