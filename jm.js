@@ -819,7 +819,6 @@ class JM extends ComicSource {
 
             return new ComicDetails({
                 title: data.name,
-                subtitle: author,
                 cover: this.getCoverUrl(id),
                 description: data.description,
                 likesCount: Number(data.likes),
