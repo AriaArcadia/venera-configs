@@ -369,7 +369,9 @@ class JM extends ComicSource {
 
                 return result
             },
-            {
+            
+        },
+        {
                 title: "禁漫最新",
                 type: "multiPageComicList",
                 load: async (page) => {
@@ -385,7 +387,7 @@ class JM extends ComicSource {
                 }
                 return result
             }
-        }
+        },
     ]
 
     // categories
