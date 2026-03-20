@@ -818,14 +818,14 @@ class JM extends ComicSource {
             let updateDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 
             return new ComicDetails({
-                title: id,
+                title: data.item,
                 subtitle: data.author ?? "N/A",
                 cover: this.getCoverUrl(id),
                 description: data.description,
                 likesCount: Number(data.likes),
                 chapters: chapters,
                 tags: {
-                    "JMID": data.id.toString(),
+                    "JMID": id,
                     "Author": author,
                     "Tag": tags,
                     "Work": works,
