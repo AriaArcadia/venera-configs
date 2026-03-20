@@ -784,6 +784,7 @@ class JM extends ComicSource {
          */
         loadInfo: async (id) => {
             if (id.startsWith('jm')) {
+                let jmid = id;
                 id = id.substring(2)
             }
             let res = await this.get(`${this.baseUrl}/album?id=${id}`);
@@ -819,14 +820,14 @@ class JM extends ComicSource {
 
             return new ComicDetails({
                 title: data.name,
-                subtitle:id,
+                subtitle:jmid,
                 cover: this.getCoverUrl(id),
                 description: data.description,
                 likesCount: Number(data.likes),
                 chapters: chapters,
                 tags: {
-                    "JMID": id,
                     "Author": author,
+                    "JMID": jmid,
                     "Tag": tags,
                     "Work": works,
                     "Actor": actors,
@@ -1109,6 +1110,7 @@ class JM extends ComicSource {
             'Work': '作品',
             'Actor': '角色',
             'View': '浏览量',
+            "JMID": 'jmID',
         },
         'zh_TW': {
             'Refresh Domain List': '刷新域名列表',
@@ -1128,6 +1130,7 @@ class JM extends ComicSource {
             'Work': '作品',
             'Actor': '角色',
             'View': '瀏覽量',
+            "JMID": 'jmID',
         },
     }
 }
